@@ -72,7 +72,6 @@ with open("irisSummary.txt", "a") as f:
 plt.title('Species Count')
 sea.countplot(x=sp, data=iris)
 plt.savefig('species_count')
-plt.show()
 
 # histogram - general by attribute
 fig, axs = plt.subplots(2, 2, figsize=(8, 8))
