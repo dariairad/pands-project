@@ -223,7 +223,7 @@ def histogram_plot(p1, p2, p3):
     plt.xlabel(p2)
     plt.ylabel('Count')
     plt.title('Histogram of ' + p2 + ' by Species') 
-    plt.legend(loc='upper right')
+    plt.legend(['Iris-virginica', 'Iris-versicolor', 'Iris_setosa'])
     plt.savefig(p3)
 
 def histograms():
