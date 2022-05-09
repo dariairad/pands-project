@@ -237,13 +237,13 @@ histograms()
 
 Output:
 
-![Figure4](https://raw.githubusercontent.com/dariairad/pands-project/main/petal_length_by_species.png)
+![Figure4](https://raw.githubusercontent.com/dariairad/pands-project/main/sepal_width_by_species.png)
 
-![Figure5](https://raw.githubusercontent.com/dariairad/pands-project/main/petal_width_by_species.png)
+![Figure5](https://raw.githubusercontent.com/dariairad/pands-project/main/sepal_length_by_species.png)
 
-![Figure6](https://raw.githubusercontent.com/dariairad/pands-project/main/sepal_length_by_species.png)
+![Figure6](https://raw.githubusercontent.com/dariairad/pands-project/main/petal_length_by_species.png)
 
-![Figure7](https://raw.githubusercontent.com/dariairad/pands-project/main/sepal_width_by_species.png)
+![Figure7](https://raw.githubusercontent.com/dariairad/pands-project/main/petal_width_by_species.png)
 
 #### Attribiutes by Species + Outliers
 
