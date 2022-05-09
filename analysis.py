@@ -35,34 +35,34 @@ original_stdout = sys.stdout
 with open("irisSummary.txt", "a") as f: 
 
     sys.stdout = f
-    print('\n**************** ANALYSIS OF THE IRIS DATASET *****************\n\n') 
-    print ('====================== Basic information ======================\n')
+    print('\n************************ ANALYSIS OF THE IRIS DATASET *************************\n\n') 
+    print ('============================== Basic information ==============================\n')
     print (iris.info()) 
     #Checking info on dataset: rows, columns, entries, data types, null values
 
-    print('\n============ Unique Species Names and Dataset Balance  ===========\n')
+    print('\n=================== Unique Species Names and Dataset Balance  ==================\n')
     print(iris[sp].value_counts())
 
-    print ('\n====================== Duplicate Entries ======================\n')
+    print ('\n=============================== Duplicate Entries ==============================\n')
     print (iris[iris.duplicated()])
 
-    print('\n==================== Overview of the Dataset ===================\n')
-    print('------------------------------ First 5 Rows ---------------------\n')
+    print('\n============================ Overview of the Dataset ==========================\n')
+    print('------------------------------------- First 5 Rows ------------------------------\n')
     print(iris.head()) 
-    print('\n----------------- Random Sample - 5 Random Rows ---------------\n')# Random sample of data from the dataset. 
+    print('\n------------------------- Random Sample - 5 Random Rows -------------------------\n')# Random sample of data from the dataset. 
     print (iris.sample(5))
     # Outputs five random complete data entries from the dataset
 
-    print('\n====================== Statistical Insights ======================\n')
+    print('\n============================= Statistical Insights =============================\n')
     #The statistical insights
     print(iris.describe())
 
-    print('\n===================== Median of Attributes =====================s\n') 
+    print('\n============================= Median of Attributes ===========================\n') 
     print(iris.median()) # Print the median of each of the attributes in tabular form
 
-    print('\n============== The Mean Values of the Three Species ==============\n')
+    print('\n====================== The Mean Values of the Three Species ======================\n')
     print(iris.groupby(sp).mean())
-    print('\n======== The Correlation Between the Values of the Three Species ======\n')
+    print('\n============= The Correlation Between the Values of the Three Species ============\n')
     print(iris.groupby(sp).corr())
 
     sys.stdout = original_stdout
@@ -134,5 +134,3 @@ plt.subplots_adjust(top=0.95)
 plt.suptitle('Relationship Between Attributes by Species')
 plt.savefig('attributes_pairplot')
 plt.show()
-
-
