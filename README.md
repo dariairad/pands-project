@@ -9,7 +9,7 @@ Higher Diploma in Computing in Data Analytics
 #### Lecturer
 Andrew Beatty (andrew.beatty@gmit.ie)
 
-## Overview
+### Overview
 
 This repository is a submission of the Final Project for the Programming and Scripting module. The aim of this project is to investigate how Python can be utilized in order to carry out data analysis on the Fisher's Iris data set.
 
@@ -21,11 +21,32 @@ The repository contains:
 4. 1 x .txt.file
 5. 11 x .png file
 
-The purpose of this README file is to provide insight into my process of researching and writing the code for this project..
+The purpose of this README file is to provide insight into my process of researching and writing the code for this project.
 
 ## Fisher's Iris Data Set
 
-#### History and Overview
+### History
+
+The Iris Dataset, aslo known as the Fisher's Iris Dataset, is a multivariate dataset created by Sir Ronald Aymer Fisher in 1936. 
+
+![Figure13](https://upload.wikimedia.org/wikipedia/commons/a/aa/Youngronaldfisher2.JPG)
+
+It is also sometimes referred to as Anderson’s Iris data set as Edge Anderson originally collected the data to quantify the variation of Iris flowers of three different class.
+
+The dataset was originally used as an example of linear discrimination analysis. However, it later became used as a test case for statistical classification techniques in machine learning. The Iris Data Set is now widely used as a beginner's dataset for machine learning purposes.
+
+### Dataset Description
+
+The information that is included in the dataset is as follows:
+
+1. Sepal length in cm
+2. Sepal width in cm
+3. Petal length in cm
+4. Petal width in cm
+5. Class:
+    - Iris Setosa
+    - Iris Versicolour
+    - Iris Virginica
 
 ![Figure1](https://machinelearninghd.com/wp-content/uploads/2021/03/iris-dataset.png)
 
@@ -48,18 +69,18 @@ import sys
 
 ## Dataset Import and Set up
 
-#### Dataset Import
+### Dataset Import
 
-Code:
+#### Code
 
 ```
 file = 'iris.data' 
 data = pnd.read_csv(file, header =None)
 ```
 
-#### Variables Set Up
+### Variables Set Up
 
-Code:
+#### Code
 
 ```
 sl = 'Sepal Length'
@@ -78,16 +99,16 @@ pal = ("dodgerblue", "mediumorchid", "teal", "slateblue")
 sea.set(style="darkgrid", palette=pal)
 ```
 
-Comments:
+#### Comments
 
 1. I set up variables for attributes and class for ease of use. 
 2. Assigned column names. 
 3. Grouped data by species.
 4. Set up colour pallette and grid style for later plotting.
 
-#### Redirecting Output
+### Redirecting Output
 
-Code:
+#### Code
 
 ```
 original_stdout = sys.stdout
@@ -99,15 +120,16 @@ with open("irisSummary.txt", "a") as f:
     sys.stdout = original_stdout
 ```
     
-Comments: 
+#### Comments
+
 1. In order to save the output to a text file, I opened the file in the append mode and decided to import the sys module to temporarily redirect output from the terminal to a file.
 2. Once all the print commands were executed, the output had been set back to normal.
 
 ## Analysis of the Iris Data Set
 
-#### Data Overview
+### Data Overview
 
-Code:
+#### Code
 
 ```
 print(iris.head()) 
@@ -115,28 +137,31 @@ print(iris.head())
 print (iris.sample(5))
 ```
 
-Comments: 
+#### Comments
+
 In order to  ensure better understanding and provide an overview of the data set structure I decided to pull the first 5 lines of the data set as well as a sample of 5 random entries. 
 
-#### Basic Information
+### Basic Information
 
-Code:
+#### Code
 
 ```
 print (iris.info())
 ```
 
-Comments: 
+#### Comments
+
 Code returns basic overview of the data incl. number of entries, number and names of columns, type of data, and Null values.
 
-Data Insights:
+#### Data Insights
+
 1. Data set does not include any Null values.
 2. There are 4 columns of numeric and one class column.
 3. There's a total of 150 entries. 
 
-#### Unique Species Names and Dataset Balance
+### Unique Species Names and Dataset Balance
 
-Code:
+#### Code
 
 ```
 print(iris[sp].value_counts())
@@ -144,18 +169,20 @@ print(iris[sp].value_counts())
 print (iris[iris.duplicated()])
 ```
 
-Comments:
+#### Comments
+
 1. `iris[sp]` returns a list of all instances of species. By using `value_count()`, the instances are grouped and counted, and returned as a sum value grouped by species. 
 2. `iris.duplicated()` searches for duplicate entries. 
 
-Data Insights:
+#### Data Insights
+
 1. There are 3 types of species, each comes up 50 times. Therefore, this dataset is of a balanced type. 
 2. There's 1 duplicate entry in the data set. However we should not remove as it would cause an inbalance in the data set. 
 
 
-#### Statistical Insights and Further Analysis
+### Statistical Insights and Further Analysis
 
-Code:
+#### Code
 
 ```
 print(iris.describe())
@@ -167,7 +194,8 @@ print(iris.groupby(sp).mean())
 print(iris.groupby(sp).corr())
 ```
 
-Data Insights: 
+#### Data Insights
+
 1. Mean Values
 2. Standard Deviation
 3. Minimum Values
@@ -177,9 +205,9 @@ Data Insights:
 
 ## Data Visualisation
 
-#### Species Count 
+### Species Count 
 
-Code:
+#### Code
 
 ```
 plt.title('Species Count')
@@ -187,17 +215,17 @@ sea.countplot(x=sp, data=iris)
 plt.savefig('species_count')
 ```
 
-Output:
+#### Output
 
 ![Figure2](https://raw.githubusercontent.com/dariairad/pands-project/main/species_count.png)
 
-Data Insights:
+#### Data Insights:
 
 The plot further demonstrates this is a balanced database.
 
-#### Attributes Count 
+### Attributes Count 
 
-Code: 
+#### Code
 
 ```
 fig, axs = plt.subplots(2, 2, figsize=(16, 9))
@@ -210,11 +238,11 @@ plt.savefig('attributes_general')
 plt.show()
 ```
 
-Output:
+#### Output
 
 ![Figure3](https://raw.githubusercontent.com/dariairad/pands-project/main/attributes_general.png)
 
-Data Insights:
+#### Data Insights:
 
 The plot gives an overview of a general distribution of the attributes in the database as a whole. From the plot we can observe that:
 
@@ -223,9 +251,10 @@ The plot gives an overview of a general distribution of the attributes in the da
 3. The most common petal length is between 1 to 2, total of around 48.
 4. The most common petal width is between 0 to 0.5, total of 49.
 
-#### Correlation Between Attributes
+### Correlation Between Attributes
 
-Code:
+#### Code
+
 ```
 plt.figure(figsize=(8,8))
 sea.heatmap(iris.corr(), annot=True, cmap='Blues')
@@ -234,14 +263,14 @@ plt.savefig('heatmap')
 plt.show()
 ```
 
-Output:
+#### Output
 
-![Figure11](https://raw.githubusercontent.com/dariairad/pands-project/main/heatmap.png)
+![Figure12](https://raw.githubusercontent.com/dariairad/pands-project/main/heatmap.png)
 
 
-#### Attributes by Species
+### Attributes by Species
 
-Code:
+#### Code
 
 ```
 def histogram_plot(p1, p2, p3):   
@@ -263,7 +292,7 @@ def histograms():
 histograms()
 ```
 
-Output:
+#### Output
 
 ![Figure4](https://raw.githubusercontent.com/dariairad/pands-project/main/sepal_width_by_species.png)
 
@@ -273,14 +302,14 @@ Output:
 
 ![Figure7](https://raw.githubusercontent.com/dariairad/pands-project/main/petal_width_by_species.png)
 
-Data Insights: 
+#### Data Insights
 
 1. There is a significant overlap between the species' sepal length, and even more prominent overlap between the species' sepal width. Therefore it's not an effective classification criteria.
 2. Petal width and length is a much better classification feature as the overlap is minor, with Iris Setosa being fully separated from the other 2 species.
 
-#### Attributes by Species + Outliers
+### Attributes by Species + Outliers
 
-Code: 
+#### Code
 
 ```
 fig, axes = plt.subplots(2, 2, figsize=(8, 8)) 
@@ -293,20 +322,20 @@ plt.legend()
 plt.savefig('atributes_outliers')
 ```
 
-Output:
+#### Output
 
 ![Figure8](https://raw.githubusercontent.com/dariairad/pands-project/main/attributes_outliers.png)
 
-Data Insights: 
+#### Data Insights
 
 1. Iris Setosa has smaller and less distributed features.
 2. Iris Versicolor is distributed in an average manner.
 3. Iris Virginica is highly distributed with large number of features.
 4. Additionally, median and mean values are shown for each attribute and species. 
 
-#### Correlation Between Atributes by Species
+### Correlation Between Atributes by Species
 
-Code:
+#### Code
 
 ```
 sea.scatterplot(x=pl, y=pw, hue=sp, data=iris, palette=pal)
@@ -320,12 +349,12 @@ plt.title('Correraltion between Sepal Length & Width')
 plt.savefig('sepal_length_width')
 ```
 
-Output:
+#### Output
 
 ![Figure9](https://raw.githubusercontent.com/dariairad/pands-project/main/sepal_length_width.png)
 ![Figure10](https://raw.githubusercontent.com/dariairad/pands-project/main/petal_length_width.png)
 
-Data Insights:
+#### Data Insights
 
 1. Iris Setosa species has smaller sepal length but relatively higher width.
    Iris Versicolor sepal lengths and witdths are almost at the middle of the spectrum.
@@ -334,9 +363,9 @@ Data Insights:
    Iris Versicolor has average petal length and petal width
    Iris Virginica has the highest petal length as well as petal width
 
-#### Relationship Between Attributes by Species
+### Relationship Between Attributes by Species
 
-Code:
+#### Code
 
 ```
 sea.pairplot(data=iris, hue=sp, height=2, palette=pal)
@@ -345,7 +374,7 @@ plt.suptitle('Relationship Between Attributes by Species')
 plt.savefig('attributes_pairplot')
 ```
 
-Output:
+#### Output
 
 ![Figure11](https://raw.githubusercontent.com/dariairad/pands-project/main/attributes_pairplot.png)
 
@@ -353,22 +382,26 @@ Output:
 
 1. Banerjee, R. (2021) *How to use Seaborn for Data Visualization* https://www.section.io/engineering-education/seaborn-tutorial/
 2. Fisher R.A. (1936) *Iris Data Set* https://archive.ics.uci.edu/ml/datasets/iris
-3. Holtz, Y. (n.d):
+3. Chauhan, G. (2021) 
+4. Holtz, Y. (n.d) *Iris Dataset Project from UCI Machine Learning Repository* https://machinelearninghd.com/iris-dataset-uci-machine-learning-repository-project/
 - *Histogram with several variables with Seaborn* https://python-graph-gallery.com/25-histogram-with-several-variables-seaborn
 - *Control color in seaborn heatmaps* https://python-graph-gallery.com/92-control-color-in-seaborn-heatmaps
-4. Kashnitsky, Y. (2021) *Topic 1. Exploratory Data Analysis with Pandas.* https://www.kaggle.com/code/kashnitsky/topic-1-exploratory-data-analysis-with-pandas/notebook
-5. Pandas (n.d.) *DataFrame.* https://pandas.pydata.org/pandas-docs/stable/reference/frame.html
-6. Pandey, P. (2019) *Getting more value from the Pandas’ value_counts()* https://towardsdatascience.com/getting-more-value-from-the-pandas-value-counts-aa17230907a6
-7. Ranjan, S. (2020) *Python | Pandas dataframe.corr().* https://www.geeksforgeeks.org/python-pandas-dataframe-corr/
-8. Solomon, B. (2018) *Python Histogram Plotting: NumPy, Matplotlib, Pandas & Seaborn.* https://realpython.com/python-histograms/
-9. Souveek (2021) *Python statistics | mean() function.* https://www.geeksforgeeks.org/python-statistics-mean-function/
-10. StockOverflow (2019 & 2020):
-- *Append a Header for CSV file?* https://stackoverflow.com/questions/28162358/append-a-header-for-csv-file/28162530#28162530
-- *What are the arguments of seaborn's distplot used for?* https://stackoverflow.com/questions/56707800/what-are-the-arguments-of-seaborns-distplot-used-for
-11. Stopak, J (2021) *Writing to a File with Python's print() Function* https://stackabuse.com/writing-to-a-file-with-pythons-print-function/
-12. The Matplotlib Development Team (n.p.). *matplotlib.pyplot* https://matplotlib.org/stable/api/pyplot_summary.html
-13. W3Schools (n.p.):
-- *Matplotlib Plotting.* https://www.w3schools.com/python/matplotlib_plotting.asp
-- *Pandas - Analyzing DataFrames.* https://www.w3schools.com/python/pandas/pandas_analyzing.asp
-- *Seaborn.* https://www.w3schools.com/python/numpy/numpy_random_seaborn.asp#
-14. Waskom, M. (n.d) *seaborn.histplot* https://seaborn.pydata.org/generated/seaborn.histplot.html
+5. Kashnitsky, Y. (2021) *Topic 1. Exploratory Data Analysis with Pandas.* https://www.kaggle.com/code/kashnitsky/topic-1-exploratory-data-analysis-with-pandas/notebook
+6. Pandas (n.d.) *DataFrame.* https://pandas.pydata.org/pandas-docs/stable/reference/frame.html
+7. Pandey, P. (2019) *Getting more value from the Pandas’ value_counts()* https://towardsdatascience.com/getting-more-value-from-the-pandas-value-counts-aa17230907a6
+8. Ranjan, S. (2020) *Python | Pandas dataframe.corr().* https://www.geeksforgeeks.org/python-pandas-dataframe-corr/
+9. Solomon, B. (2018) *Python Histogram Plotting: NumPy, Matplotlib, Pandas & Seaborn.* https://realpython.com/python-histograms/
+10. Souveek (2021) *Python statistics | mean() function.* https://www.geeksforgeeks.org/python-statistics-mean-function/
+11. StockOverflow (2019 & 2020):
+    - *Append a Header for CSV file?* https://stackoverflow.com/questions/28162358/append-a-header-for-csv-file/28162530#28162530
+    - *What are the arguments of seaborn's distplot used for?* https://stackoverflow.com/questions/56707800/what-are-the-arguments-of-seaborns-distplot-used-for
+12. Stopak, J (2021) *Writing to a File with Python's print() Function* https://stackabuse.com/writing-to-a-file-with-pythons-print-function/
+13. The Matplotlib Development Team (n.p.)
+    - *matplotlib.pyplot* https://matplotlib.org/stable/api/pyplot_summary.html
+    - *Title positioning* https://matplotlib.org/3.5.0/gallery/text_labels_and_annotations/titles_demo.html
+14. W3Schools (n.p.):
+    - *Matplotlib Plotting.* https://www.w3schools.com/python/matplotlib_plotting.asp
+    - *Pandas - Analyzing DataFrames.* https://www.w3schools.com/python/pandas/pandas_analyzing.asp
+    - *Seaborn.* https://www.w3schools.com/python/numpy/numpy_random_seaborn.asp#
+15. Waskom, M. (n.d) *seaborn.histplot* https://seaborn.pydata.org/generated/seaborn.histplot.html
+16. Wikipedia (2022) *Iris flower data set* https://en.wikipedia.org/wiki/Iris_flower_data_set
