@@ -295,7 +295,7 @@ plt.savefig('atributes_outliers')
 
 Output:
 
-![Figure8](https://raw.githubusercontent.com/dariairad/pands-project/main/atributes_outliers.png)
+![Figure8](https://raw.githubusercontent.com/dariairad/pands-project/main/attributes_outliers.png)
 
 Data Insights: 
 
