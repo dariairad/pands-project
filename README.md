@@ -218,10 +218,10 @@ Data Insights:
 
 The plot gives an overview of a general distribution of the attributes in the database as a whole. From the plot we can observe that:
 
-1. The most common sepal length is between 5.5 and 6.5, total of  entries.
-2. The most common sepal width is between 2.5 to 3.5, total of around 70 entires.
-3. The most common petal length is between 0.5 to 1.5 which is around 50.
-4. The most common of petal width is between 0 to 0.5 which is around 50.
+1. The most common sepal length is between 5.5 and 6.0, total of 34 entries.
+2. The most common sepal width is between 3.0 to 3.5, total of around 68 entires.
+3. The most common petal length is between 1 to 2, total of around 48.
+4. The most common of petal width is between 0 to 0.5, total of 49.
 
 #### Correlation Between Attributes
 
@@ -237,9 +237,6 @@ plt.show()
 Output:
 
 ![Figure11](https://raw.githubusercontent.com/dariairad/pands-project/main/heatmap.png)
-
-Data Insights:
-
 
 
 #### Attributes by Species
@@ -278,6 +275,9 @@ Output:
 
 Data Insights: 
 
+1. There is a significant overlap between the species' sepal length, and even more prominent overlap between the species' sepal width. Therefore these are not an effective classification criteria.
+2. Petal width and length is a much better classification feature as the overlap is minor, with Iris Settosa being fully separated from the other 2 species.
+
 #### Attribiutes by Species + Outliers
 
 Code: 
@@ -297,7 +297,14 @@ Output:
 
 ![Figure8](https://raw.githubusercontent.com/dariairad/pands-project/main/atributes_outliers.png)
 
-#### Correlation Between Atributes 
+Data Insights: 
+
+1. Iris Setosa has smaller and less distributed features.
+2. Iris Versicolor is distributed in an average manner.
+3. Iris Virginica is highly distributed with large number of features.
+4. Additionally, median and mean values are shown for each attribute and species. 
+
+#### Correlation Between Atributes by Species
 
 Code:
 
@@ -318,6 +325,15 @@ Output:
 ![Figure9](https://raw.githubusercontent.com/dariairad/pands-project/main/sepal_length_width.png)
 ![Figure10](https://raw.githubusercontent.com/dariairad/pands-project/main/petal_length_width.png)
 
+Data Insights:
+
+1. Iris Setosa species has smaller sepal length but relatively higher width.
+   Iris Versicolor sepal lengths and witdths are almost at the middle of the spectrum.
+   Iris Virginica has larger sepal lengths and smaller sepal widths than the rest.
+2. Iris Setosa has the smallest petal length as well as petal width
+   Iris Versicolor has average petal length and petal width
+   Iris Virginica has the highest petal length as well as petal width
+
 #### Relationship Between Attributes by Species
 
 Code:
@@ -332,25 +348,6 @@ plt.savefig('attributes_pairplot')
 Output:
 
 ![Figure11](https://raw.githubusercontent.com/dariairad/pands-project/main/attributes_pairplot.png)
-
-#### Data Insights:
-
-1. Iris Setosa species has smaller sepal length but relatively higher width.
-   Iris Versicolor lies in almost middle for length as well as width.
-   Iris Virginica has larger sepal lengths and smaller sepal widths.
-2. Iris Setosa has the smallest petal length as well as petal width
-   Iris Versicolor has average petal length and petal width
-   Iris Virginica has the highest petal length as well as petal width
-3. There's high correlation between petal length and width, and low correlation between sepal length and witdth.
-4. Iris Setosa has smaller feature that are less distributed.
-   Iris Versicolor is distributed in a average manner.
-   Iris Virginica is highly distributed with large number of features.
-5. There is a significant overlap between the species' sepal length, and even more prominent overlap between the species' sepal width. Therefore these are not       
-   effective Classification criteria.
-6. Petal width and length is a much better classification feature as the overlap is minor, with Iris Settosa being fully separated from the other 2 species. 
-
-
-
 
 ## References
 
