@@ -212,7 +212,7 @@ plt.show()
 
 Output:
 
-![Figure3](https://github.com/dariairad/pands-project/blob/main/attributes_general.png)
+![Figure3](https://raw.githubusercontent.com/dariairad/pands-project/main/attributes_general.png)
 
 Data Insights:
 
