@@ -193,6 +193,8 @@ Output:
 
 #### Attributes Count 
 
+Code: 
+
 ```
 fig, axs = plt.subplots(2, 2, figsize=(8, 8))
 sea.histplot(data=iris, x=sl, color="dodgerblue", ax=axs[0, 0])
@@ -203,8 +205,13 @@ plt.suptitle('Attributes - General')
 plt.savefig('attributes_general')
 ```
 
+Output:
+
 #### Attributes by Species
 
+Code:
+
+```
 def histogram_plot(p1, p2, p3):   
     sea.histplot(data = iris_virginica[p1], label = 'Iris virginica', color = 'dodgerblue') 
     sea.histplot(data = iris_versicolor[p1], label = 'Iris versicolor', color = 'mediumorchid')
@@ -222,8 +229,14 @@ def histograms():
     histogram_plot(pw, pw, 'petal_width_by_species')
 
 histograms()
+```
 
-# Attribiutes by Species + Outliers
+Output:
+
+
+#### Attribiutes by Species + Outliers
+
+Code: 
 
 ```
 fig, axes = plt.subplots(2, 2, figsize=(8, 8)) 
@@ -236,7 +249,13 @@ plt.legend()
 plt.savefig('atributes_outliers')
 ```
 
+Output:
 
+#### Correlation Between Atributes 
+
+Code:
+
+```
 sea.scatterplot(x=pl, y=pw, hue=sp, data=iris, palette=pal)
 plt.legend(loc='upper left')
 plt.title('Correraltion between Petal Length & Width')
@@ -246,31 +265,43 @@ sea.scatterplot(x=sl, y=sw, hue=sp, data=iris, palette=pal)
 plt.legend(loc='upper right')
 plt.title('Correraltion between Sepal Length & Width')
 plt.savefig('sepal_length_width')
+```
 
+Output:
+
+#### Relationship Between Attributes by Species
+
+Code:
+
+```
 sea.pairplot(data=iris, hue=sp, height=2, palette=pal)
 plt.subplots_adjust(top=0.95)
 plt.suptitle('Relationship Between Attributes by Species')
 plt.savefig('attributes_pairplot')
+```
+
+Output:
+
 
 
 
 
 ## References
 
-Banerjee, R. (2021) *How to use Seaborn for Data Visualization* https://www.section.io/engineering-education/seaborn-tutorial/
-Fisher R.A. (1936) *Iris Data Set* https://archive.ics.uci.edu/ml/datasets/iris
-Holtz, Y. (n.d) *Histogram with several variables with Seaborn* https://python-graph-gallery.com/25-histogram-with-several-variables-seaborn
-Kashnitsky, Y. (2021) *Topic 1. Exploratory Data Analysis with Pandas.* https://www.kaggle.com/code/kashnitsky/topic-1-exploratory-data-analysis-with-pandas/notebook
-Pandas (n.d.) *DataFrame.* https://pandas.pydata.org/pandas-docs/stable/reference/frame.html
-Pandey, P. (2019) *Getting more value from the Pandas’ value_counts()* https://towardsdatascience.com/getting-more-value-from-the-pandas-value-counts-aa17230907a6
-Ranjan, S. (2020) *Python | Pandas dataframe.corr().* https://www.geeksforgeeks.org/python-pandas-dataframe-corr/
-Solomon, B. (2018) *Python Histogram Plotting: NumPy, Matplotlib, Pandas & Seaborn.* https://realpython.com/python-histograms/
-Souveek (2021) *Python statistics | mean() function.* https://www.geeksforgeeks.org/python-statistics-mean-function/
-StockOverflow (2019) *Append a Header for CSV file?* https://stackoverflow.com/questions/28162358/append-a-header-for-csv-file/28162530#28162530
-StockOverflow (2020) *What are the arguments of seaborn's distplot used for?* https://stackoverflow.com/questions/56707800/what-are-the-arguments-of-seaborns-distplot-used-for
-Stopak, J (2021) *Writing to a File with Python's print() Function* https://stackabuse.com/writing-to-a-file-with-pythons-print-function/
-The Matplotlib Development Team (n.p.). *matplotlib.pyplot* https://matplotlib.org/stable/api/pyplot_summary.html
-W3Schools (n.p.). *Matplotlib Plotting.* https://www.w3schools.com/python/matplotlib_plotting.asp
-W3Schools (n.p). *Pandas - Analyzing DataFrames.* https://www.w3schools.com/python/pandas/pandas_analyzing.asp
-W3Schools (n.p). *Seaborn.* https://www.w3schools.com/python/numpy/numpy_random_seaborn.asp
-Waskom, M. (n.d) *seaborn.histplot* https://seaborn.pydata.org/generated/seaborn.histplot.html
+1. Banerjee, R. (2021) *How to use Seaborn for Data Visualization* https://www.section.io/engineering-education/seaborn-tutorial/
+2. Fisher R.A. (1936) *Iris Data Set* https://archive.ics.uci.edu/ml/datasets/iris
+3. Holtz, Y. (n.d) *Histogram with several variables with Seaborn* https://python-graph-gallery.com/25-histogram-with-several-variables-seaborn
+4. Kashnitsky, Y. (2021) *Topic 1. Exploratory Data Analysis with Pandas.* https://www.kaggle.com/code/kashnitsky/topic-1-exploratory-data-analysis-with-pandas/notebook
+5. Pandas (n.d.) *DataFrame.* https://pandas.pydata.org/pandas-docs/stable/reference/frame.html
+6. Pandey, P. (2019) *Getting more value from the Pandas’ value_counts()* https://towardsdatascience.com/getting-more-value-from-the-pandas-value-counts-aa17230907a6
+7. Ranjan, S. (2020) *Python | Pandas dataframe.corr().* https://www.geeksforgeeks.org/python-pandas-dataframe-corr/
+8. Solomon, B. (2018) *Python Histogram Plotting: NumPy, Matplotlib, Pandas & Seaborn.* https://realpython.com/python-histograms/
+9. Souveek (2021) *Python statistics | mean() function.* https://www.geeksforgeeks.org/python-statistics-mean-function/
+10. StockOverflow (2019) *Append a Header for CSV file?* https://stackoverflow.com/questions/28162358/append-a-header-for-csv-file/28162530#28162530
+11. StockOverflow (2020) *What are the arguments of seaborn's distplot used for?* https://stackoverflow.com/questions/56707800/what-are-the-arguments-of-seaborns-distplot-used-for
+12. Stopak, J (2021) *Writing to a File with Python's print() Function* https://stackabuse.com/writing-to-a-file-with-pythons-print-function/
+13. The Matplotlib Development Team (n.p.). *matplotlib.pyplot* https://matplotlib.org/stable/api/pyplot_summary.html
+14. W3Schools (n.p.). *Matplotlib Plotting.* https://www.w3schools.com/python/matplotlib_plotting.asp
+15. W3Schools (n.p). *Pandas - Analyzing DataFrames.* https://www.w3schools.com/python/pandas/pandas_analyzing.asp
+16. W3Schools (n.p). *Seaborn.* https://www.w3schools.com/python/numpy/numpy_random_seaborn.asp#
+17. Waskom, M. (n.d) *seaborn.histplot* https://seaborn.pydata.org/generated/seaborn.histplot.html
