@@ -156,8 +156,8 @@ Code returns basic overview of the data incl. number of entries, number and name
 #### Data Insights
 
 1. Data set does not include any Null values.
-2. There are 4 columns of numeric and one class column.
-3. There's a total of 150 entries. 
+2. There are 4 columns of numeric values and one class column.
+3. There's a total of 150 data entries. 
 
 ### Unique Species Names and Dataset Balance
 
@@ -177,7 +177,7 @@ print (iris[iris.duplicated()])
 #### Data Insights
 
 1. There are 3 types of species, each comes up 50 times. Therefore, this dataset is of a balanced type. 
-2. There's 1 duplicate entry in the data set. However we should not remove as it would cause an inbalance in the data set. 
+2. There's 1 duplicate entry in the data set. However we should not remove as it would cause an imbalance in the data set. 
 
 
 ### Statistical Insights and Further Analysis
@@ -213,7 +213,15 @@ print(iris.groupby(sp).corr())
 plt.title('Species Count')
 sea.countplot(x=sp, data=iris)
 plt.savefig('species_count')
+plt.close()
 ```
+
+#### Comments
+
+1. `plt.title()` lets us pass a string to se the title for the plot.
+2. `sea.countplot()` grups and sums the values as chosen. This function takes multiple arguments. Here we have the x axis set to species thus the data gets grouped by species, and the iris Database under data. 
+3. `plt.savefigure()` saves the image of the plot to a specified file. 
+4. `plt.close()` closes the plot after execution. 
 
 #### Output
 
@@ -235,8 +243,21 @@ sea.histplot(data=iris, x=pl, color="slateblue", ax=axs[1, 0], bins=7)
 sea.histplot(data=iris, x=pw, color="teal", ax=axs[1, 1], bins=5)
 plt.suptitle('Attributes - General')
 plt.savefig('attributes_general')
-plt.show()
+plt.close()
 ```
+
+#### Comments
+
+1. I started with setting the plots parameters then created 4 histographs using `sea.histplot()`
+2. `sea.histplot()` takes in multiple arguments that allow us to manipulate the information included in the histogram as well as the plot's visual attributes.
+3. I have used following arguments: 
+    - data - the Iris Dataset
+    - x axis - attributes from the database (petal width and height, sepal width and length)
+    - color 
+    - ax - to organise the multiple plots on one image
+    - bins - to set the number of bars
+4. `plt.suptitle()` allows us to assign a title to an entire set rather than single plot. 
+5. `plt.savefig()` and `plt.close()` saves the plot to a png file and exits out after executio respectively. I will ommit these in the further comments as they are used in all plots along with `plt.title()` and/or `plt.suptitle()`.
 
 #### Output
 
@@ -260,8 +281,17 @@ plt.figure(figsize=(8,8))
 sea.heatmap(iris.corr(), annot=True, cmap='Blues')
 plt.title('Correlation Between Attributes')
 plt.savefig('heatmap')
-plt.show()
+plt.close()
 ```
+
+#### Comments
+
+1. I set figure parameters. 
+2. Then generated a heat map of correlations between attributes using `sea.heatmap()`.
+3. Arguments passed are as follows:
+    - `iris.corr()` function that analyses the correlations
+    - annot - let's us choose whether annotations should be included on the heatmap
+    - cmap - to set the color palette for the heatmap 
 
 #### Output
 
@@ -274,14 +304,15 @@ plt.show()
 
 ```
 def histogram_plot(p1, p2, p3):   
-    sea.histplot(data = iris_virginica[p1], label = 'Iris virginica', color = 'dodgerblue') 
-    sea.histplot(data = iris_versicolor[p1], label = 'Iris versicolor', color = 'mediumorchid')
-    sea.histplot(data = iris_setosa[p1], label = 'Iris setosa', color = 'teal')
+    sea.histplot(data = iris_virginica[p1], color = 'dodgerblue') 
+    sea.histplot(data = iris_versicolor[p1], color = 'mediumorchid')
+    sea.histplot(data = iris_setosa[p1], color = 'teal')
     plt.xlabel(p2)
     plt.ylabel('Count')
     plt.title('Histogram of ' + p2 + ' by Species') 
     plt.legend(['Iris-virginica', 'Iris-versicolor', 'Iris_setosa'])
     plt.savefig(p3)
+    plt.close()
 
 def histograms():
     histogram_plot(sl, sl, 'sepal_length_by_species') 
@@ -291,6 +322,18 @@ def histograms():
 
 histograms()
 ```
+
+# Comments
+
+1. Here, we are creating 4 seperate histograms showing the attributes' frequency organised by species. 
+2. I decided to create 2 functions rather than generating each histogram separately. 
+3. Started with defining`histogram_plot()` function that includes the pattern of data inluded in each histogram as well as visual attributes:
+    - `sea.histplot()` generates a histogram
+    - `plt.xlabel()` and `plot.ylabel()` allows to set custom labeling for x and y axis respectively
+    - `plt.legend()` adds legend box to a plot. It takes number of arguments allowing for set up of customised labels, title as well as manipulate the positioning of the legend box as seen further down.
+4. The function takes in 3 arguments: attribute values, attribute name, and plot's title. 
+5.  The arguments for each seperate histogram are listed under second function `histograms()`.
+6.  After defining both functions, the function was executed resulting in 4 histograms being generate, as seen below. 
 
 #### Output
 
@@ -320,6 +363,7 @@ sea.boxplot(x=sp, y=sw, data=iris, ax=axes[1,1])
 plt.suptitle('Attributes by Species + Outliers')
 plt.legend()
 plt.savefig('atributes_outliers')
+plt.close()
 ```
 
 #### Output
@@ -342,11 +386,13 @@ sea.scatterplot(x=pl, y=pw, hue=sp, data=iris, palette=pal)
 plt.legend(loc='upper left')
 plt.title('Correraltion between Petal Length & Width')
 plt.savefig('petal_length_width')
+plt.close()
 
 sea.scatterplot(x=sl, y=sw, hue=sp, data=iris, palette=pal)
 plt.legend(loc='upper right')
 plt.title('Correraltion between Sepal Length & Width')
 plt.savefig('sepal_length_width')
+plt.close()
 ```
 
 #### Output
@@ -372,6 +418,7 @@ sea.pairplot(data=iris, hue=sp, height=2, palette=pal)
 plt.subplots_adjust(top=0.95)
 plt.suptitle('Relationship Between Attributes by Species')
 plt.savefig('attributes_pairplot')
+plt.close()
 ```
 
 #### Output
