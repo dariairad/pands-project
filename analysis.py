@@ -84,6 +84,13 @@ plt.suptitle('Attributes - General')
 plt.savefig('attributes_general')
 plt.show()
 
+# Heatmap of correlations between attributes
+plt.figure(figsize=(8,8))
+sea.heatmap(iris.corr(), annot=True, cmap='Blues')
+plt.title('Correlation Between Attributes')
+plt.savefig('heatmap')
+plt.show()
+
 # defining function for histograms - attributes by species
 def histogram_plot(p1, p2, p3):
     
