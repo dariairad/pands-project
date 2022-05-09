@@ -186,10 +186,11 @@ Code:
 plt.title('Species Count')
 sea.countplot(x=sp, data=iris)
 plt.savefig('species_count')
-plt.show()
 ```
 
 Output:
+
+![Figure2](https://raw.githubusercontent.com/dariairad/pands-project/main/species_count.png)
 
 #### Attributes Count 
 
@@ -206,6 +207,9 @@ plt.savefig('attributes_general')
 ```
 
 Output:
+
+![Figure3](https://github.com/dariairad/pands-project/blob/main/attributes_general.png)
+
 
 #### Attributes by Species
 
@@ -233,6 +237,13 @@ histograms()
 
 Output:
 
+![Figure4](https://raw.githubusercontent.com/dariairad/pands-project/main/petal_length_by_species.png)
+
+![Figure5](https://raw.githubusercontent.com/dariairad/pands-project/main/petal_width_by_species.png)
+
+![Figure6](https://raw.githubusercontent.com/dariairad/pands-project/main/sepal_length_by_species.png)
+
+![Figure7](https://raw.githubusercontent.com/dariairad/pands-project/main/sepal_width_by_species.png)
 
 #### Attribiutes by Species + Outliers
 
@@ -250,6 +261,8 @@ plt.savefig('atributes_outliers')
 ```
 
 Output:
+
+![Figure8](https://raw.githubusercontent.com/dariairad/pands-project/main/atributes_outliers.png)
 
 #### Correlation Between Atributes 
 
@@ -269,6 +282,9 @@ plt.savefig('sepal_length_width')
 
 Output:
 
+![Figure9](https://raw.githubusercontent.com/dariairad/pands-project/main/sepal_length_width.png)
+![Figure10](https://raw.githubusercontent.com/dariairad/pands-project/main/petal_length_width.png)
+
 #### Relationship Between Attributes by Species
 
 Code:
@@ -282,7 +298,7 @@ plt.savefig('attributes_pairplot')
 
 Output:
 
-
+![Figure11](https://raw.githubusercontent.com/dariairad/pands-project/main/attributes_pairplot.png)
 
 
 
