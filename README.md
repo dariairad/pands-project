@@ -323,7 +323,7 @@ def histograms():
 histograms()
 ```
 
-# Comments
+#### Comments
 
 1. Here, we are creating 4 seperate histograms showing the attributes' frequency organised by species. 
 2. I decided to create 2 functions rather than generating each histogram separately. 
