@@ -72,24 +72,24 @@ with open("irisSummary.txt", "a") as f:
 plt.title('Species Count')
 sea.countplot(x=sp, data=iris)
 plt.savefig('species_count')
-plt.show()
+plt.close()
 
 # histogram - general by attribute
-fig, axs = plt.subplots(2, 2, figsize=(8, 8))
-sea.histplot(data=iris, x=sl, color="dodgerblue", ax=axs[0, 0])
-sea.histplot(data=iris, x=sw, color="mediumorchid", ax=axs[0, 1])
-sea.histplot(data=iris, x=pl, color="slateblue", ax=axs[1, 0])
-sea.histplot(data=iris, x=pw, color="teal", ax=axs[1, 1])
+fig, axs = plt.subplots(2, 2, figsize=(16, 9))
+sea.histplot(data=iris, x=sl, color="dodgerblue", ax=axs[0, 0], bins=7)
+sea.histplot(data=iris, x=sw, color="mediumorchid", ax=axs[0, 1], bins=5)
+sea.histplot(data=iris, x=pl, color="slateblue", ax=axs[1, 0], bins=7)
+sea.histplot(data=iris, x=pw, color="teal", ax=axs[1, 1], bins=5)
 plt.suptitle('Attributes - General')
 plt.savefig('attributes_general')
-plt.show()
+plt.close()
 
 # Heatmap of correlations between attributes
 plt.figure(figsize=(8,8))
 sea.heatmap(iris.corr(), annot=True, cmap='Blues')
 plt.title('Correlation Between Attributes')
 plt.savefig('heatmap')
-plt.show()
+plt.close()
 
 # defining function for histograms - attributes by species
 def histogram_plot(p1, p2, p3):
@@ -102,7 +102,8 @@ def histogram_plot(p1, p2, p3):
     plt.title('Histogram of ' + p2 + ' by Species') 
     plt.legend(['Iris-virginica', 'Iris-versicolor', 'Iris_setosa'])
     plt.savefig(p3)
-    plt.show()
+    plt.close()
+
 
 def histograms():
     histogram_plot(sl, sl, 'sepal_length_by_species') 
@@ -111,7 +112,7 @@ def histograms():
     histogram_plot(pw, pw, 'petal_width_by_species')
 
 histograms()
-plt.show()
+plt.close()
 
 # Attributes by species + Outliers
 fig, axes = plt.subplots(2, 2, figsize=(8, 8)) 
@@ -122,22 +123,23 @@ sea.boxplot(x=sp, y=sw, data=iris, ax=axes[1,1])
 plt.suptitle('Attributes by Species + Outliers')
 plt.legend()
 plt.savefig('attributes_outliers')
-plt.show()
+plt.close()
 
 sea.scatterplot(x=pl, y=pw, hue=sp, data=iris, palette=pal)
 plt.legend(loc='upper left')
 plt.title('Correlation between Petal Length & Width')
 plt.savefig('petal_length_width')
-plt.show()
+plt.close()
+
 
 sea.scatterplot(x=sl, y=sw, hue=sp, data=iris, palette=pal)
 plt.legend(loc='upper right')
 plt.title('Correlation between Sepal Length & Width')
 plt.savefig('sepal_length_width')
-plt.show()
+plt.close()
 
 sea.pairplot(data=iris, hue=sp, height=2, palette=pal)
 plt.subplots_adjust(top=0.95)
 plt.suptitle('Relationship Between Attributes by Species')
 plt.savefig('attributes_pairplot')
-plt.show()
+plt.close()
