@@ -19,7 +19,7 @@ The repository contains
 2. 1 x .data file
 3. 1 x .md file 
 4. 1 x .txt.file
-5. 11 x .png file
+5. 10 x .png file
 
 The purpose of this README file is to provide insight into my process of researching and writing the code for those tasks.
 
