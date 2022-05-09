@@ -11,9 +11,9 @@ Andrew Beatty (andrew.beatty@gmit.ie)
 
 ## Overview
 
-This repository is a submission to Final Project for the Programming and Scripting module. The aim of this project is to investigate how Python can be utilized in order to carry out data analysis on the Fisher's Iris data set.
+This repository is a submission of the Final Project for the Programming and Scripting module. The aim of this project is to investigate how Python can be utilized in order to carry out data analysis on the Fisher's Iris data set.
 
-The repository contains
+The repository contains:
 
 1. 1 x .py file
 2. 1 x .data file
@@ -100,8 +100,8 @@ with open("irisSummary.txt", "a") as f:
 ```
     
 Comments: 
-1. In order to save the output to a text file, I opened the file in the append mode and decided to import `sys` module to temporary redirect output from terminal to the file. 
-2. Once, all the print commands were executed, the output had been set back to normal. 
+1. In order to save the output to a text file, I opened the file in the append mode and decided to import the sys module to temporarily redirect output from the terminal to a file.
+2. Once all the print commands were executed, the output had been set back to normal.
 
 ## Analysis of the Iris Data Set
 
@@ -116,7 +116,7 @@ print (iris.sample(5))
 ```
 
 Comments: 
-In order to  ensure better understanding and provide an overview of the data set structure I decided to pull first 5 lines of the data set as well as a sample of 5 random entries. 
+In order to  ensure better understanding and provide an overview of the data set structure I decided to pull the first 5 lines of the data set as well as a sample of 5 random entries. 
 
 #### Basic Information
 
@@ -127,11 +127,11 @@ print (iris.info())
 ```
 
 Comments: 
-Code returns basic overview of the data incl. number of entries, number and names of columns, type of data, and Null valueas.
+Code returns basic overview of the data incl. number of entries, number and names of columns, type of data, and Null values.
 
 Data Insights:
-1. Data set does not inlcude any Null values. 
-2. There are 4 collumns of numeric and one class column. 
+1. Data set does not include any Null values.
+2. There are 4 columns of numeric and one class column.
 3. There's a total of 150 entries. 
 
 #### Unique Species Names and Dataset Balance
@@ -149,8 +149,8 @@ Comments:
 2. `iris.duplicated()` searches for duplicate entries. 
 
 Data Insights:
-1. There are 3 types of species, each comes up 50 times. Therefore, this dataset is of a balnced type. 
-2.  There's 1 duplicate entry in the data set. However we should not remove as it would cause an inbalance in the data set. 
+1. There are 3 types of species, each comes up 50 times. Therefore, this dataset is of a balanced type. 
+2. There's 1 duplicate entry in the data set. However we should not remove as it would cause an inbalance in the data set. 
 
 
 #### Statistical Insights and Further Analysis
@@ -193,7 +193,7 @@ Output:
 
 Data Insights:
 
-The plot further demostrates this is a balanced database.
+The plot further demonstrates this is a balanced database.
 
 #### Attributes Count 
 
@@ -219,9 +219,9 @@ Data Insights:
 The plot gives an overview of a general distribution of the attributes in the database as a whole. From the plot we can observe that:
 
 1. The most common sepal length is between 5.5 and 6.0, total of 34 entries.
-2. The most common sepal width is between 3.0 to 3.5, total of around 68 entires.
+2. The most common sepal width is between 3.0 to 3.5, total of around 68 entries.
 3. The most common petal length is between 1 to 2, total of around 48.
-4. The most common of petal width is between 0 to 0.5, total of 49.
+4. The most common petal width is between 0 to 0.5, total of 49.
 
 #### Correlation Between Attributes
 
@@ -275,10 +275,10 @@ Output:
 
 Data Insights: 
 
-1. There is a significant overlap between the species' sepal length, and even more prominent overlap between the species' sepal width. Therefore these are not an effective classification criteria.
-2. Petal width and length is a much better classification feature as the overlap is minor, with Iris Settosa being fully separated from the other 2 species.
+1. There is a significant overlap between the species' sepal length, and even more prominent overlap between the species' sepal width. Therefore it's not an effective classification criteria.
+2. Petal width and length is a much better classification feature as the overlap is minor, with Iris Setosa being fully separated from the other 2 species.
 
-#### Attribiutes by Species + Outliers
+#### Attributes by Species + Outliers
 
 Code: 
 
