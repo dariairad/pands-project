@@ -224,7 +224,7 @@ plt.show()
 
 Output:
 
-![Figure11]()
+![Figure11](https://raw.githubusercontent.com/dariairad/pands-project/main/heatmap.png)
 
 #### Attributes by Species
 
@@ -338,18 +338,22 @@ Output:
 
 1. Banerjee, R. (2021) *How to use Seaborn for Data Visualization* https://www.section.io/engineering-education/seaborn-tutorial/
 2. Fisher R.A. (1936) *Iris Data Set* https://archive.ics.uci.edu/ml/datasets/iris
-3. Holtz, Y. (n.d) *Histogram with several variables with Seaborn* https://python-graph-gallery.com/25-histogram-with-several-variables-seaborn
+3. Holtz, Y. (n.d):
+- *Histogram with several variables with Seaborn* https://python-graph-gallery.com/25-histogram-with-several-variables-seaborn
+- *Control color in seaborn heatmaps* https://python-graph-gallery.com/92-control-color-in-seaborn-heatmaps
 4. Kashnitsky, Y. (2021) *Topic 1. Exploratory Data Analysis with Pandas.* https://www.kaggle.com/code/kashnitsky/topic-1-exploratory-data-analysis-with-pandas/notebook
 5. Pandas (n.d.) *DataFrame.* https://pandas.pydata.org/pandas-docs/stable/reference/frame.html
 6. Pandey, P. (2019) *Getting more value from the Pandas’ value_counts()* https://towardsdatascience.com/getting-more-value-from-the-pandas-value-counts-aa17230907a6
 7. Ranjan, S. (2020) *Python | Pandas dataframe.corr().* https://www.geeksforgeeks.org/python-pandas-dataframe-corr/
 8. Solomon, B. (2018) *Python Histogram Plotting: NumPy, Matplotlib, Pandas & Seaborn.* https://realpython.com/python-histograms/
 9. Souveek (2021) *Python statistics | mean() function.* https://www.geeksforgeeks.org/python-statistics-mean-function/
-10. StockOverflow (2019) *Append a Header for CSV file?* https://stackoverflow.com/questions/28162358/append-a-header-for-csv-file/28162530#28162530
-11. StockOverflow (2020) *What are the arguments of seaborn's distplot used for?* https://stackoverflow.com/questions/56707800/what-are-the-arguments-of-seaborns-distplot-used-for
-12. Stopak, J (2021) *Writing to a File with Python's print() Function* https://stackabuse.com/writing-to-a-file-with-pythons-print-function/
-13. The Matplotlib Development Team (n.p.). *matplotlib.pyplot* https://matplotlib.org/stable/api/pyplot_summary.html
-14. W3Schools (n.p.). *Matplotlib Plotting.* https://www.w3schools.com/python/matplotlib_plotting.asp
-15. W3Schools (n.p). *Pandas - Analyzing DataFrames.* https://www.w3schools.com/python/pandas/pandas_analyzing.asp
-16. W3Schools (n.p). *Seaborn.* https://www.w3schools.com/python/numpy/numpy_random_seaborn.asp#
-17. Waskom, M. (n.d) *seaborn.histplot* https://seaborn.pydata.org/generated/seaborn.histplot.html
+10. StockOverflow (2019 & 2020):
+- *Append a Header for CSV file?* https://stackoverflow.com/questions/28162358/append-a-header-for-csv-file/28162530#28162530
+- *What are the arguments of seaborn's distplot used for?* https://stackoverflow.com/questions/56707800/what-are-the-arguments-of-seaborns-distplot-used-for
+11. Stopak, J (2021) *Writing to a File with Python's print() Function* https://stackabuse.com/writing-to-a-file-with-pythons-print-function/
+12. The Matplotlib Development Team (n.p.). *matplotlib.pyplot* https://matplotlib.org/stable/api/pyplot_summary.html
+13. W3Schools (n.p.):
+- *Matplotlib Plotting.* https://www.w3schools.com/python/matplotlib_plotting.asp
+- *Pandas - Analyzing DataFrames.* https://www.w3schools.com/python/pandas/pandas_analyzing.asp
+- *Seaborn.* https://www.w3schools.com/python/numpy/numpy_random_seaborn.asp#
+14. Waskom, M. (n.d) *seaborn.histplot* https://seaborn.pydata.org/generated/seaborn.histplot.html
