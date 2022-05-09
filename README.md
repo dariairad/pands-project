@@ -21,7 +21,7 @@ The repository contains
 4. 1 x .txt.file
 5. 10 x .png file
 
-The purpose of this README file is to provide insight into my process of researching and writing the code for those tasks.
+The purpose of this README file is to provide insight into my process of researching and writing the code for this project..
 
 ## Fisher's Iris Data Set
 
@@ -299,6 +299,23 @@ plt.savefig('attributes_pairplot')
 Output:
 
 ![Figure11](https://raw.githubusercontent.com/dariairad/pands-project/main/attributes_pairplot.png)
+
+#### Data Insights:
+
+1. Iris Setosa species has smaller sepal length but relatively higher width.
+   Iris Versicolor lies in almost middle for length as well as width.
+   Iris Virginica has larger sepal lengths and smaller sepal widths.
+2. Iris Setosa has the smallest petal length as well as petal width
+   Iris Versicolor has average petal length and petal width
+   Iris Virginica has the highest petal length as well as petal width
+3. There's high correlation between petal length and width, and low correlation between sepal length and witdth.
+4. Iris Setosa has smaller feature that are less distributed.
+   Iris Versicolor is distributed in a average manner.
+   Iris Virginica is highly distributed with large number of features.
+5. There is a significant overlap between the species' sepal length, and even more prominent overlap between the species' sepal width. Therefore these are not       
+   effective Classification criteria.
+6. Petal width and length is a much better classification feature as the overlap is minor, with Iris Settosa being fully separated from the other 2 species. 
+
 
 
 
