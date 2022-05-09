@@ -37,7 +37,6 @@ import matplotlib.pyplot as plt
 import pandas as pnd 
 import seaborn as sea
 import sys 
-
 ```
 
 1. `numpy` - NumPy is a Python library used for working with arrays.
@@ -192,16 +191,20 @@ Output:
 
 ![Figure2](https://raw.githubusercontent.com/dariairad/pands-project/main/species_count.png)
 
+Data Insights:
+
+The plot further demostrates this is a balanced database.
+
 #### Attributes Count 
 
 Code: 
 
 ```
-fig, axs = plt.subplots(2, 2, figsize=(8, 8))
-sea.histplot(data=iris, x=sl, color="dodgerblue", ax=axs[0, 0])
-sea.histplot(data=iris, x=sw, color="mediumorchid", ax=axs[0, 1])
-sea.histplot(data=iris, x=pl, color="slateblue", ax=axs[1, 0])
-sea.histplot(data=iris, x=pw, color="teal", ax=axs[1, 1])
+fig, axs = plt.subplots(2, 2, figsize=(16, 9))
+sea.histplot(data=iris, x=sl, color="dodgerblue", ax=axs[0, 0], bins=7)
+sea.histplot(data=iris, x=sw, color="mediumorchid", ax=axs[0, 1], bins=5)
+sea.histplot(data=iris, x=pl, color="slateblue", ax=axs[1, 0], bins=7)
+sea.histplot(data=iris, x=pw, color="teal", ax=axs[1, 1], bins=5)
 plt.suptitle('Attributes - General')
 plt.savefig('attributes_general')
 plt.show()
@@ -210,6 +213,15 @@ plt.show()
 Output:
 
 ![Figure3](https://github.com/dariairad/pands-project/blob/main/attributes_general.png)
+
+Data Insights:
+
+The plot gives an overview of a general distribution of the attributes in the database as a whole. From the plot we can observe that:
+
+1. The most common sepal length is between 5.5 and 6.5, total of  entries.
+2. The most common sepal width is between 2.5 to 3.5, total of around 70 entires.
+3. The most common petal length is between 0.5 to 1.5 which is around 50.
+4. The most common of petal width is between 0 to 0.5 which is around 50.
 
 #### Correlation Between Attributes
 
@@ -225,6 +237,10 @@ plt.show()
 Output:
 
 ![Figure11](https://raw.githubusercontent.com/dariairad/pands-project/main/heatmap.png)
+
+Data Insights:
+
+
 
 #### Attributes by Species
 
@@ -259,6 +275,8 @@ Output:
 ![Figure6](https://raw.githubusercontent.com/dariairad/pands-project/main/petal_length_by_species.png)
 
 ![Figure7](https://raw.githubusercontent.com/dariairad/pands-project/main/petal_width_by_species.png)
+
+Data Insights: 
 
 #### Attribiutes by Species + Outliers
 
