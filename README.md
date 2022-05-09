@@ -47,65 +47,213 @@ import sys
 5. `sys` - Sys provides functions and modules to interact with Python Interpreter. 
 
 
-### Dataset
+### Dataset Import and Set up
 
 #### Dataset Import
+
+Code:
 
 ```
 file = 'iris.data' 
 data = pnd.read_csv(file, header =None)
 ```
 
-#### Analysis Summary of the Data
+#### Variables Set Up
 
-##### Number of Rows and Columns
+Code:
 
 ```
-print('\nNumber of Rows and Columns\n')
-shape =(data.shape)
-print (f'Rows: {shape[0]}')
-print (f'Columns: {shape[1]}')
+sl = 'Sepal Length'
+sw = 'Sepal Width'
+pl = 'Petal Length'
+pw = 'Petal Width'
+sp = 'Species'
+
+iris.columns = [sl, sw, pl, pw, sp]
+
+iris_setosa = iris[iris[sp]=='Iris-setosa'] 
+iris_virginica = iris[iris[sp]=='Iris-virginica']
+iris_versicolor = iris[iris[sp]=='Iris-versicolor'] 
+
+pal = ("dodgerblue", "mediumorchid", "teal", "slateblue")
+sea.set(style="darkgrid", palette=pal)
 ```
 
-Number of Instances: 150 (50 in each of three classes)
-Number of Attributes: 4 numeric, predictive attributes and the class
+Comments:
 
-Attribute Information:
-   1. sepal length in cm
-   2. sepal width in cm
-   3. petal length in cm
-   4. petal width in cm
-   5. class: 
-      - Iris Setosa
-      - Iris Versicolour
-      - Iris Virginica
+1. I set up variables for attributes and class for ease of use. 
+2. Assigned column names. 
+3. Grouped data by species.
+4. Set up colour pallette and grid style for later plotting.
 
-Missing Attribute Values: None
+#### Redirecting Output
+
+Code:
+
+```
+original_stdout = sys.stdout
+
+with open("irisSummary.txt", "a") as f: 
+
+    sys.stdout = f
+    [...]
+    sys.stdout = original_stdout
+```
+    
+Comments: 
+1. In order to save the output to a text file, I opened the file in the append mode and decided to import `sys` module to temporary redirect output from terminal to the file. 
+2. Once, all the print commands were executed, the output had been set back to normal. 
+
+## Analysis of the Iris Data Set
+
+#### Data Overview
+
+Code:
+
+```
+print(iris.head()) 
+[...]
+print (iris.sample(5))
+```
+
+Comments: 
+In order to  ensure better understanding and provide an overview of the data set structure I decided to pull first 5 lines of the data set as well as a sample of 5 random entries. 
+
+#### Basic Information
+
+Code:
+
+```
+print (iris.info())
+```
+
+Comments: 
+Code returns basic overview of the data incl. number of entries, number and names of columns, type of data, and Null valueas.
+
+Data Insights:
+1. Data set does not inlcude any Null values. 
+2. There are 4 collumns of numeric and one class column. 
+3. There's a total of 150 entries. 
+
+#### Unique Species Names and Dataset Balance
+
+Code:
+
+```
+print(iris[sp].value_counts())
+[...]
+print (iris[iris.duplicated()])
+```
+
+Comments:
+1. `iris[sp]` returns a list of all instances of species. By using `value_count()`, the instances are grouped and counted, and returned as a sum value grouped by species. 
+2. `iris.duplicated()` searches for duplicate entries. 
+
+Data Insights:
+1. There are 3 types of species, each comes up 50 times. Therefore, this dataset is of a balnced type. 
+2.  There's 1 duplicate entry in the data set. However we should not remove as it would cause an inbalance in the data set. 
 
 
-Class Distribution: 33.3% for each of 3 classes.
+#### Statistical Insights and Further Analysis
 
-## Histograms
+Code:
 
-### Code
+```
+print(iris.describe())
+[...]
+print(iris.median()) 
+[...]
+print(iris.groupby(sp).mean())
+[...]
+print(iris.groupby(sp).corr())
+```
 
-Blah blah
+Data Insights: 
+1. Mean Values
+2. Standard Deviation
+3. Minimum Values
+4. Maximum Values
+5. Median Values by Species
+6. Correlation Between Attributes
 
-### Histograms
+## Data Visualisation
 
-blah blah
+#### Species Count 
 
-## Scatter Plots
+Code:
 
-### Code
+```
+plt.title('Species Count')
+sea.countplot(x=sp, data=iris)
+plt.savefig('species_count')
+plt.show()
+```
 
-### Scatter Plots
+Output:
 
-## Pairplot
+#### Attributes Count 
 
-### Code
+```
+fig, axs = plt.subplots(2, 2, figsize=(8, 8))
+sea.histplot(data=iris, x=sl, color="dodgerblue", ax=axs[0, 0])
+sea.histplot(data=iris, x=sw, color="mediumorchid", ax=axs[0, 1])
+sea.histplot(data=iris, x=pl, color="slateblue", ax=axs[1, 0])
+sea.histplot(data=iris, x=pw, color="teal", ax=axs[1, 1])
+plt.suptitle('Attributes - General')
+plt.savefig('attributes_general')
+```
 
-### Pairplot
+#### Attributes by Species
+
+def histogram_plot(p1, p2, p3):   
+    sea.histplot(data = iris_virginica[p1], label = 'Iris virginica', color = 'dodgerblue') 
+    sea.histplot(data = iris_versicolor[p1], label = 'Iris versicolor', color = 'mediumorchid')
+    sea.histplot(data = iris_setosa[p1], label = 'Iris setosa', color = 'teal')
+    plt.xlabel(p2)
+    plt.ylabel('Count')
+    plt.title('Histogram of ' + p2 + ' by Species') 
+    plt.legend(loc='upper right')
+    plt.savefig(p3)
+
+def histograms():
+    histogram_plot(sl, sl, 'sepal_length_by_species') 
+    histogram_plot(sw, sw, 'sepal_width_by_species')
+    histogram_plot(pl, pl, 'petal_length_by_species')
+    histogram_plot(pw, pw, 'petal_width_by_species')
+
+histograms()
+
+# Attribiutes by Species + Outliers
+
+```
+fig, axes = plt.subplots(2, 2, figsize=(8, 8)) 
+sea.boxplot(x=sp, y=pl,data=iris, ax=axes[0,0])
+sea.boxplot(x=sp, y=sl, data=iris, ax=axes[0,1])
+sea.boxplot(x=sp, y=pw,data=iris, ax=axes[1,0])
+sea.boxplot(x=sp, y=sw, data=iris, ax=axes[1,1])
+plt.suptitle('Attributes by Species + Outliers')
+plt.legend()
+plt.savefig('atributes_outliers')
+```
+
+
+sea.scatterplot(x=pl, y=pw, hue=sp, data=iris, palette=pal)
+plt.legend(loc='upper left')
+plt.title('Correraltion between Petal Length & Width')
+plt.savefig('petal_length_width')
+
+sea.scatterplot(x=sl, y=sw, hue=sp, data=iris, palette=pal)
+plt.legend(loc='upper right')
+plt.title('Correraltion between Sepal Length & Width')
+plt.savefig('sepal_length_width')
+
+sea.pairplot(data=iris, hue=sp, height=2, palette=pal)
+plt.subplots_adjust(top=0.95)
+plt.suptitle('Relationship Between Attributes by Species')
+plt.savefig('attributes_pairplot')
+
+
+
 
 ## References
 
